@@ -1,146 +1,50 @@
-<!doctype html>
+le<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f7f1">
 <title>Sage — Your Inner Sanctuary</title>
 <style>
 :root{--ink:#28352c;--muted:#6f796e;--sage:#62745e;--dark:#435641;--pale:#e8ede3;--paper:#f8f7f1;--white:#fffefa;--line:#e4e5dc;--shadow:0 18px 60px rgba(48,59,44,.08)}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:245px minmax(0,1fr)}aside{background:#f4f3ec;border-right:1px solid var(--line);padding:25px 17px;display:flex;flex-direction:column;gap:27px}.brand{display:flex;align-items:center;gap:10px;padding:0 8px}.mark{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:var(--dark);color:white;font:25px Georgia,serif}.brand-name{font:25px Georgia,serif;letter-spacing:-.7px}.sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:2px}.new{background:var(--white);border:1px solid #d7ddcf;border-radius:13px;padding:12px;color:var(--dark);font-weight:600}.label{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:#8a9185;padding:0 10px;margin-bottom:8px}.nav{width:100%;text-align:left;border:0;background:transparent;color:#657063;padding:11px 10px;border-radius:9px;margin:2px 0}.nav:hover,.nav.active{background:#e8ebe1;color:var(--ink)}.side-note{font-size:12px;line-height:1.65;color:var(--muted);padding:0 10px}.bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:17px}main{min-width:0;display:flex;flex-direction:column;min-height:100vh}header{min-height:70px;display:flex;align-items:center;justify-content:space-between;padding:17px clamp(18px,5vw,60px);border-bottom:1px solid var(--line)}.head-title{font:18px Georgia,serif}.presence{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;border-radius:50%;background:#91a486}.mobile-brand{display:none}.content{width:min(840px,100%);margin:auto;padding:35px 28px 20px;flex:1;display:flex;flex-direction:column}.welcome{text-align:center;padding:16px 0 27px}.eyebrow{text-transform:uppercase;font-size:10px;letter-spacing:2.4px;color:var(--sage);font-weight:700}h1{font:400 clamp(38px,5vw,54px)/1.1 Georgia,serif;letter-spacing:-1.7px;margin:17px 0 14px}.intro{max-width:490px;margin:auto;color:var(--muted);font-size:14px;line-height:1.75}.prompts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:590px;margin:25px auto 0}.prompt{text-align:left;border:1px solid var(--line);background:rgba(255,254,250,.8);border-radius:14px;padding:15px;color:var(--ink);min-height:80px}.prompt:hover{border-color:#b7c4ad;background:white}.prompt strong{display:block;font-size:13px;margin-bottom:5px}.prompt span{font-size:12px;line-height:1.45;color:var(--muted)}.chat{display:none;flex-direction:column;gap:18px;padding:12px 0 25px}.msg{display:flex;align-items:flex-start;gap:10px}.msg.user{flex-direction:row-reverse}.avatar{flex:0 0 31px;height:31px;border-radius:50%;display:grid;place-items:center;font:18px Georgia,serif}.sage-avatar{background:var(--dark);color:white}.user-avatar{background:#e8e1d2;color:#5c5b4f;font:700 10px system-ui}.bubble{max-width:min(620px,calc(100% - 43px));padding:14px 16px;border:1px solid var(--line);background:var(--white);border-radius:4px 16px 16px 16px;font-size:14px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}.user .bubble{background:#e9eee4;border-color:#e0e7da;border-radius:16px 4px 16px 16px}.composer-wrap{position:sticky;bottom:0;padding:15px 0 7px;background:linear-gradient(180deg,rgba(248,247,241,0),var(--paper) 18%)}.composer{display:flex;align-items:flex-end;gap:10px;padding:10px;border:1px solid #dfe2d8;background:var(--white);border-radius:18px;box-shadow:var(--shadow)}textarea{flex:1;min-height:42px;max-height:140px;resize:none;border:0;outline:0;background:transparent;color:var(--ink);padding:10px 9px;line-height:1.5;font-size:14px}textarea::placeholder{color:#9a9f94}.send{flex:0 0 42px;width:42px;height:42px;border:0;border-radius:12px;background:var(--dark);color:white;font-size:20px}.send:disabled{opacity:.45;cursor:default}.status{font-size:12px;text-align:center;color:var(--sage);min-height:20px;padding-top:7px}.foot{font-size:10px;line-height:1.6;text-align:center;color:#969b90;padding:7px 5px}.error{color:#8a4a3c}.typing{color:var(--muted);font-style:italic}
-
-.orb-area{display:flex;flex-direction:column;align-items:center;gap:13px;padding:8px 0 23px}
-.orb{position:relative;width:116px;height:116px;border:1px solid rgba(117,143,106,.38);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 38% 32%,#dce8d3 0%,#a9bea0 27%,#718a6b 58%,#435641 100%);box-shadow:0 0 0 12px rgba(139,162,126,.07),0 0 48px rgba(111,143,99,.24);animation:sageBreath 5s ease-in-out infinite;cursor:pointer;color:white;font:30px Georgia,serif}
-.orb:before,.orb:after{content:"";position:absolute;inset:-12px;border:1px solid rgba(120,146,109,.22);border-radius:50%;animation:sageRing 5s ease-out infinite}
-.orb:after{animation-delay:2.5s}
-.orb:hover{box-shadow:0 0 0 15px rgba(139,162,126,.09),0 0 60px rgba(111,143,99,.35)}
-.orb-caption{font:italic 15px Georgia,serif;color:var(--muted)}
-.voice-button{border:1px solid #d7ddcf;background:var(--white);border-radius:24px;padding:10px 19px;color:var(--dark);font-size:13px}
-.voice-button:hover{background:var(--pale)}
-@keyframes sageBreath{0%,100%{transform:scale(.96);filter:brightness(.96)}50%{transform:scale(1.045);filter:brightness(1.08)}}
-@keyframes sageRing{0%{transform:scale(.94);opacity:.65}100%{transform:scale(1.28);opacity:0}}
-
-
-.orb-area{display:flex;flex-direction:column;align-items:center;gap:13px;padding:8px 0 23px}
-.orb{position:relative;width:116px;height:116px;border:1px solid rgba(117,143,106,.38);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 38% 32%,#dce8d3 0%,#a9bea0 27%,#718a6b 58%,#435641 100%);box-shadow:0 0 0 12px rgba(139,162,126,.07),0 0 48px rgba(111,143,99,.24);animation:sageBreath 5s ease-in-out infinite;cursor:pointer;color:white;font:30px Georgia,serif}
-.orb:before,.orb:after{content:"";position:absolute;inset:-12px;border:1px solid rgba(120,146,109,.22);border-radius:50%;animation:sageRing 5s ease-out infinite}
-.orb:after{animation-delay:2.5s}
-.orb:hover{box-shadow:0 0 0 15px rgba(139,162,126,.09),0 0 60px rgba(111,143,99,.35)}
-.orb-caption{font:italic 15px Georgia,serif;color:var(--muted)}
-.voice-button{border:1px solid #d7ddcf;background:var(--white);border-radius:24px;padding:10px 19px;color:var(--dark);font-size:13px}
-.voice-button:hover{background:var(--pale)}
-@keyframes sageBreath{0%,100%{transform:scale(.96);filter:brightness(.96)}50%{transform:scale(1.045);filter:brightness(1.08)}}
-@keyframes sageRing{0%{transform:scale(.94);opacity:.65}100%{transform:scale(1.28);opacity:0}}
-
-@media(max-width:740px){.app{grid-template-columns:1fr}aside{display:none}.mobile-brand{display:flex;align-items:center;gap:8px}.mobile-brand .mark{width:32px;height:32px;font-size:20px}.mobile-brand .brand-name{font-size:21px}header{min-height:60px;padding:12px 17px}.head-title{display:none}.content{padding:20px 16px 13px}.welcome{padding:18px 0 23px}h1{font-size:40px}.prompts{grid-template-columns:1fr;margin-top:21px}.prompt{min-height:0;padding:13px 15px}}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:245px minmax(0,1fr)}aside{background:#f4f3ec;border-right:1px solid var(--line);padding:25px 17px;display:flex;flex-direction:column;gap:27px}.brand,.mobile-brand{display:flex;align-items:center;gap:10px;padding:0 8px}.mark{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:var(--dark);color:white;font:25px Georgia,serif}.brand-name{font:25px Georgia,serif;letter-spacing:-.7px}.sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:2px}.new{background:var(--white);border:1px solid #d7ddcf;border-radius:13px;padding:12px;color:var(--dark);font-weight:600}.label{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:#8a9185;padding:0 10px;margin-bottom:8px}.nav{width:100%;text-align:left;border:0;background:transparent;color:#657063;padding:11px 10px;border-radius:9px;margin:2px 0}.nav:hover,.nav.active{background:#e8ebe1;color:var(--ink)}.side-note{font-size:12px;line-height:1.65;color:var(--muted);padding:0 10px}.bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:17px}main{min-width:0;display:flex;flex-direction:column;min-height:100vh}header{min-height:70px;display:flex;align-items:center;justify-content:space-between;padding:17px clamp(18px,5vw,60px);border-bottom:1px solid var(--line)}.head-title{font:18px Georgia,serif}.presence{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;border-radius:50%;background:#91a486}.mobile-brand{display:none}.content{width:min(840px,100%);margin:auto;padding:35px 28px 20px;flex:1;display:flex;flex-direction:column}.welcome{text-align:center;padding:16px 0 27px}.eyebrow{text-transform:uppercase;font-size:10px;letter-spacing:2.4px;color:var(--sage);font-weight:700}h1{font:400 clamp(38px,5vw,54px)/1.1 Georgia,serif;letter-spacing:-1.7px;margin:17px 0 14px}.intro{max-width:490px;margin:auto;color:var(--muted);font-size:14px;line-height:1.75}.prompts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:590px;margin:25px auto 0}.prompt{text-align:left;border:1px solid var(--line);background:rgba(255,254,250,.8);border-radius:14px;padding:15px;color:var(--ink);min-height:80px}.prompt:hover{border-color:#b7c4ad;background:white}.prompt strong{display:block;font-size:13px;margin-bottom:5px}.prompt span{font-size:12px;line-height:1.45;color:var(--muted)}.chat{display:none;flex-direction:column;gap:18px;padding:12px 0 25px}.msg{display:flex;align-items:flex-start;gap:10px}.msg.user{flex-direction:row-reverse}.avatar{flex:0 0 31px;height:31px;border-radius:50%;display:grid;place-items:center;font:18px Georgia,serif}.sage-avatar{background:var(--dark);color:white}.user-avatar{background:#e8e1d2;color:#5c5b4f;font:700 10px system-ui}.bubble{max-width:min(620px,calc(100% - 43px));padding:14px 16px;border:1px solid var(--line);background:var(--white);border-radius:4px 16px 16px 16px;font-size:14px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}.user .bubble{background:#e9eee4;border-color:#e0e7da;border-radius:16px 4px 16px 16px}.composer-wrap{position:sticky;bottom:0;padding:15px 0 7px;background:linear-gradient(180deg,rgba(248,247,241,0),var(--paper) 18%)}.composer{display:flex;align-items:flex-end;gap:10px;padding:10px;border:1px solid #dfe2d8;background:var(--white);border-radius:18px;box-shadow:var(--shadow)}textarea{flex:1;min-height:42px;max-height:140px;resize:none;border:0;outline:0;background:transparent;color:var(--ink);padding:10px 9px;line-height:1.5;font-size:14px}textarea::placeholder{color:#9a9f94}.send{flex:0 0 42px;width:42px;height:42px;border:0;border-radius:12px;background:var(--dark);color:white;font-size:20px}.send:disabled{opacity:.45;cursor:default}.status{font-size:12px;text-align:center;color:var(--sage);min-height:20px;padding-top:7px}.foot{font-size:10px;line-height:1.6;text-align:center;color:#969b90;padding:7px 5px}.error{color:#8a4a3c}.typing{color:var(--muted);font-style:italic}.orb-area{display:flex;flex-direction:column;align-items:center;gap:13px;padding:8px 0 23px}.orb{position:relative;width:116px;height:116px;border:1px solid rgba(117,143,106,.38);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 38% 32%,#dce8d3 0%,#a9bea0 27%,#718a6b 58%,#435641 100%);box-shadow:0 0 0 12px rgba(139,162,126,.07),0 0 48px rgba(111,143,99,.24);animation:sageBreath 5s ease-in-out infinite;cursor:pointer;color:white;font:30px Georgia,serif}.orb:before,.orb:after{content:"";position:absolute;inset:-12px;border:1px solid rgba(120,146,109,.22);border-radius:50%;animation:sageRing 5s ease-out infinite}.orb:after{animation-delay:2.5s}.orb-caption{font:italic 15px Georgia,serif;color:var(--muted)}.voice-button{border:1px solid #d7ddcf;background:var(--white);border-radius:24px;padding:10px 19px;color:var(--dark);font-size:13px}.voice-button:hover{background:var(--pale)}@keyframes sageBreath{0%,100%{transform:scale(.96);filter:brightness(.96)}50%{transform:scale(1.045);filter:brightness(1.08)}}@keyframes sageRing{0%{transform:scale(.94);opacity:.65}100%{transform:scale(1.28);opacity:0}}@media(max-width:740px){.app{grid-template-columns:1fr}aside{display:none}.mobile-brand{display:flex;padding:0}.mobile-brand .mark{width:32px;height:32px;font-size:20px}.mobile-brand .brand-name{font-size:21px}header{min-height:60px;padding:12px 17px}.head-title{display:none}.content{padding:20px 16px 13px}.welcome{padding:18px 0 23px}h1{font-size:40px}.prompts{grid-template-columns:1fr;margin-top:21px}.prompt{min-height:0;padding:13px 15px}}
 </style>
 </head>
 <body>
-<div class="app">
-<aside>
-  <div class="brand"><div class="mark">S</div><div><div class="brand-name">Sage</div><div class="sub">Inner sanctuary</div></div></div>
-  <button class="new" id="newChat">＋ &nbsp; Begin again</button>
-  <div><div class="label">Your space</div>
-    <button class="nav active" id="navTalk">◌ &nbsp; Talk to Sage</button>
-    <button class="nav" id="navDaily">☼ &nbsp; Daily reflection</button>
-    <button class="nav" id="navRitual">⌁ &nbsp; Return to stillness</button>
-  </div>
-  <div><div class="label">A gentle reminder</div><div class="side-note">You do not need to arrive with the right words. Begin wherever you are.</div></div>
-  <div class="bottom side-note">A space for reflection, not absolute answers. Your path remains your own.</div>
-</aside>
-<main>
-<header><div class="mobile-brand"><div class="mark">S</div><div class="brand-name">Sage</div></div><div class="head-title">A quiet place to return to yourself</div><div class="presence"><span class="dot"></span> Here with you</div></header>
-<div class="content">
-<section class="welcome" id="welcome">
-  <div class="eyebrow">Your inner sanctuary</div><h1>Come back to<br><em>yourself.</em></h1>
-  <p class="intro">You don't have to solve everything today. Bring the question, the feeling, or the quiet ache you can't quite name. We'll begin there.</p>
-
-  <div class="orb-area">
-    <button class="orb" id="voiceOrb" aria-label="Talk to Sage">S</button>
-    <div class="orb-caption" id="orbCaption">A moment of stillness</div>
-    <button class="voice-button" id="voiceButton" type="button">◉ &nbsp; Speak with Sage</button>
-  </div>
-
-  <div class="orb-area">
-    <button class="orb" id="voiceOrb" aria-label="Talk to Sage">S</button>
-    <div class="orb-caption" id="orbCaption">A moment of stillness</div>
-    <button class="voice-button" id="voiceButton" type="button">◉ &nbsp; Speak with Sage</button>
-  </div>
-  <div class="prompts">
-    <button class="prompt" data-prompt="I feel overwhelmed, and I don't know where to begin."><strong>Find a little clarity</strong><span>When everything feels tangled</span></button>
-    <button class="prompt" data-prompt="I have feelings I haven't quite made space for. Can you sit with me in that?"><strong>Sit with my feelings</strong><span>Without rushing to fix them</span></button>
-    <button class="prompt" data-prompt="I'm at a crossroads in my life. Help me listen for what matters most."><strong>Explore a crossroads</strong><span>When the next step is unclear</span></button>
-    <button class="prompt" data-prompt="Can you guide me through a brief grounding ritual?"><strong>Return to stillness</strong><span>A moment to settle and breathe</span></button>
-  </div>
-</section>
-<section class="chat" id="chat" aria-live="polite"></section>
-<div class="composer-wrap">
-  <form class="composer" id="form"><textarea id="input" rows="1" maxlength="4000" placeholder="What's on your heart today?" aria-label="Your message"></textarea><button class="send" id="send" aria-label="Send message" type="submit">↑</button></form>
-  <div class="status" id="status"></div>
-  <div class="foot">Take what resonates; leave what doesn't. Sage is a reflective companion, not a replacement for professional or human support.</div>
-</div>
-</div>
-</main>
-</div>
+<div class="app"><aside>
+<div class="brand"><div class="mark">S</div><div><div class="brand-name">Sage</div><div class="sub">Inner sanctuary</div></div></div>
+<button class="new" id="newChat" type="button">＋ &nbsp; Begin again</button>
+<div><div class="label">Your space</div><button class="nav active" id="navTalk" type="button">◌ &nbsp; Talk to Sage</button><button class="nav" id="navDaily" type="button">☼ &nbsp; Daily reflection</button><button class="nav" id="navRitual" type="button">⌁ &nbsp; Return to stillness</button></div>
+<div><div class="label">A gentle reminder</div><div class="side-note">You do not need to arrive with the right words. Begin wherever you are.</div></div><div class="bottom side-note">A space for reflection, not absolute answers. Your path remains your own.</div>
+</aside><main><header><div class="mobile-brand"><div class="mark">S</div><div class="brand-name">Sage</div></div><div class="head-title">A quiet place to return to yourself</div><div class="presence"><span class="dot"></span> Here with you</div></header>
+<div class="content"><section class="welcome" id="welcome"><div class="eyebrow">Your inner sanctuary</div><h1>Come back to<br><em>yourself.</em></h1><p class="intro">You don't have to solve everything today. Bring the question, the feeling, or the quiet ache you can't quite name. We'll begin there.</p>
+<div class="orb-area"><button class="orb" id="voiceOrb" type="button" aria-label="Talk to Sage">S</button><div class="orb-caption" id="orbCaption">A moment of stillness</div><button class="voice-button" id="voiceButton" type="button">◉ &nbsp; Speak with Sage</button></div>
+<div class="prompts"><button class="prompt" data-prompt="I feel overwhelmed, and I don't know where to begin." type="button"><strong>Find a little clarity</strong><span>When everything feels tangled</span></button><button class="prompt" data-prompt="I have feelings I haven't quite made space for. Can you sit with me in that?" type="button"><strong>Sit with my feelings</strong><span>Without rushing to fix them</span></button><button class="prompt" data-prompt="I'm at a crossroads in my life. Help me listen for what matters most." type="button"><strong>Explore a crossroads</strong><span>When the next step is unclear</span></button><button class="prompt" data-prompt="Can you guide me through a brief grounding ritual?" type="button"><strong>Return to stillness</strong><span>A moment to settle and breathe</span></button></div></section>
+<section class="chat" id="chat" aria-live="polite"></section><div class="composer-wrap"><form class="composer" id="form"><textarea id="input" rows="1" maxlength="4000" placeholder="What's on your heart today?" aria-label="Your message"></textarea><button class="send" id="send" aria-label="Send message" type="submit">↑</button></form><div class="status" id="status" role="status" aria-live="polite"></div><div class="foot">Take what resonates; leave what doesn't. Sage is a reflective companion, not a replacement for professional or human support.</div></div></div></main></div>
 <script>
-const welcome=document.getElementById("welcome"), chat=document.getElementById("chat"), input=document.getElementById("input"), statusEl=document.getElementById("status"), send=document.getElementById("send");
+'use strict';
+const welcome=document.getElementById('welcome');
+const chat=document.getElementById('chat');
+const input=document.getElementById('input');
+const statusEl=document.getElementById('status');
+const send=document.getElementById('send');
+const voiceButton=document.getElementById('voiceButton');
+const voiceOrb=document.getElementById('voiceOrb');
+const orbCaption=document.getElementById('orbCaption');
 let voiceMode=false;
 let recognition=null;
-const voiceButton=document.getElementById("voiceButton");
-const voiceOrb=document.getElementById("voiceOrb");
-const orbCaption=document.getElementById("orbCaption");
-function speakReply(text){
-  if(!voiceMode || !("speechSynthesis" in window)) return;
-  window.speechSynthesis.cancel();
-  const utterance=new SpeechSynthesisUtterance(text);
-  utterance.rate=0.88;
-  utterance.pitch=0.92;
-  utterance.volume=0.9;
-  utterance.onstart=()=>{orbCaption.textContent="A few words, gently offered";statusEl.textContent="Sage is speaking…";};
-  utterance.onend=()=>{orbCaption.textContent="A moment of stillness";statusEl.textContent="Here with you";};
-  window.speechSynthesis.speak(utterance);
-}
-function startListening(){
-  const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SpeechRecognition){
-    statusEl.textContent="Voice input isn't available in this browser. You can still type below.";
-    statusEl.className="status";
-    return;
-  }
-  if(recognition){try{recognition.abort()}catch(e){}}
-  recognition=new SpeechRecognition();
-  recognition.lang="en-US";
-  recognition.interimResults=false;
-  recognition.maxAlternatives=1;
-  recognition.onstart=()=>{orbCaption.textContent="I'm here. Take your time.";statusEl.textContent="Listening…";voiceOrb.style.animationDuration="2s";};
-  recognition.onresult=e=>{input.value=e.results[0][0].transcript;sendMessage(input.value);};
-  recognition.onerror=()=>{statusEl.textContent="I couldn't hear that clearly. Tap the voice button to try again.";orbCaption.textContent="A moment of stillness";};
-  recognition.onend=()=>{voiceOrb.style.animationDuration="5s";if(!send.disabled)orbCaption.textContent="A moment of stillness";};
-  try{recognition.start()}catch(e){statusEl.textContent="Please tap the voice button again in a moment.";}
-}
-voiceButton.addEventListener("click",()=>{
-  voiceMode=true;
-  if(!("speechSynthesis" in window)){
-    statusEl.textContent="Spoken replies aren't supported in this browser.";
-  }
-  startListening();
-});
-voiceOrb.addEventListener("click",()=>{
-  voiceMode=true;
-  startListening();
-});
 let history=[];
-function addMessage(role,text,extraClass=""){const row=document.createElement("div");row.className="msg "+(role==="user"?"user":"sage");const avatar=document.createElement("div");avatar.className="avatar "+(role==="user"?"user-avatar":"sage-avatar");avatar.textContent=role==="user"?"YOU":"S";const bubble=document.createElement("div");bubble.className="bubble "+extraClass;bubble.textContent=text;row.append(avatar,bubble);chat.append(row);row.scrollIntoView({behavior:"smooth",block:"end"});return bubble}
-function showChat(){welcome.style.display="none";chat.style.display="flex"}
-async function sendMessage(text){text=text.trim();if(!text||send.disabled)return;showChat();addMessage("user",text);history.push({role:"user",content:text});input.value="";input.style.height="auto";send.disabled=true;statusEl.textContent="Sage is listening…";statusEl.className="status";const pending=addMessage("assistant","Taking a quiet moment with your words…","typing");
-try{const recent=history.slice(-20);const response=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:recent})});const data=await response.json();if(!response.ok)throw new Error(data.error||"Something went wrong. Please try again.");pending.textContent=data.reply;pending.classList.remove("typing");history.push({role:"assistant",content:data.reply});statusEl.textContent="Here with you";speakReply(data.reply);speakReply(data.reply);}catch(err){pending.textContent=err.message||"Sage is unavailable just now. Please try again.";pending.classList.remove("typing");pending.classList.add("error");statusEl.textContent="Check that the server is running and your API key is configured.";statusEl.className="status error";}finally{send.disabled=false;input.focus()}}
-document.getElementById("form").addEventListener("submit",e=>{e.preventDefault();sendMessage(input.value)});
-input.addEventListener("input",()=>{input.style.height="auto";input.style.height=Math.min(input.scrollHeight,140)+"px"});
-input.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();document.getElementById("form").requestSubmit()}});
-document.querySelectorAll("[data-prompt]").forEach(b=>b.addEventListener("click",()=>sendMessage(b.dataset.prompt)));
-function reset(){history=[];chat.replaceChildren();chat.style.display="none";welcome.style.display="block";statusEl.textContent="";input.value="";document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));document.getElementById("navTalk").classList.add("active")}
-document.getElementById("newChat").addEventListener("click",reset);document.getElementById("navTalk").addEventListener("click",reset);
-document.getElementById("navDaily").addEventListener("click",()=>sendMessage("Offer me a daily reflection: one gentle insight and one open question, without assuming what my day is like."));
-document.getElementById("navRitual").addEventListener("click",()=>sendMessage("Guide me through a brief grounding ritual to return to the present moment."));
-</script>
-</body>
-</html>
+function speakReply(text){if(!voiceMode||!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.rate=.88;utterance.pitch=.92;utterance.volume=.9;utterance.onstart=()=>{orbCaption.textContent='A few words, gently offered';statusEl.textContent='Sage is speaking…'};utterance.onend=()=>{orbCaption.textContent='A moment of stillness';statusEl.textContent='Here with you'};window.speechSynthesis.speak(utterance)}
+function startListening(){const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SpeechRecognition){statusEl.textContent='Voice input is not available in this browser. You can still type below.';return}if(recognition){try{recognition.abort()}catch(e){}}recognition=new SpeechRecognition();recognition.lang='en-US';recognition.interimResults=false;recognition.maxAlternatives=1;recognition.onstart=()=>{orbCaption.textContent="I'm here. Take your time.";statusEl.textContent='Listening…';voiceOrb.style.animationDuration='2s'};recognition.onresult=e=>{input.value=e.results[0][0].transcript;sendMessage(input.value)};recognition.onerror=()=>{statusEl.textContent='I could not hear that clearly. Tap the voice button to try again.';orbCaption.textContent='A moment of stillness'};recognition.onend=()=>{voiceOrb.style.animationDuration='5s';if(!send.disabled)orbCaption.textContent='A moment of stillness'};try{recognition.start()}catch(e){statusEl.textContent='Please tap the voice button again in a moment.'}}
+voiceButton.addEventListener('click',()=>{voiceMode=true;if(!('speechSynthesis'in window))statusEl.textContent='Spoken replies are not supported in this browser.';startListening()});
+voiceOrb.addEventListener('click',()=>{voiceMode=true;startListening()});
+function addMessage(role,text,extraClass=''){const row=document.createElement('div');row.className='msg '+(role==='user'?'user':'sage');const avatar=document.createElement('div');avatar.className='avatar '+(role==='user'?'user-avatar':'sage-avatar');avatar.textContent=role==='user'?'YOU':'S';const bubble=document.createElement('div');bubble.className='bubble '+extraClass;bubble.textContent=text;row.append(avatar,bubble);chat.append(row);row.scrollIntoView({behavior:'smooth',block:'end'});return bubble}
+function showChat(){welcome.style.display='none';chat.style.display='flex'}
+async function sendMessage(message){const text=String(message||'').trim();if(!text||send.disabled)return;showChat();addMessage('user',text);history.push({role:'user',content:text});input.value='';input.style.height='auto';send.disabled=true;statusEl.textContent='Sage is listening…';statusEl.className='status';const pending=addMessage('assistant','Taking a quiet moment with your words…','typing');try{const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-20)})});let data;try{data=await response.json()}catch(e){throw new Error('The server returned an unreadable response. Please try again.')}if(!response.ok)throw new Error(data.error||('Request failed ('+response.status+'). Please try again.'));if(typeof data.reply!=='string'||!data.reply.trim())throw new Error('Sage returned an empty reply. Please try again.');pending.textContent=data.reply;pending.classList.remove('typing');history.push({role:'assistant',content:data.reply});statusEl.textContent='Here with you';speakReply(data.reply)}catch(err){pending.textContent=err.message||'Sage is unavailable just now. Please try again.';pending.classList.remove('typing');pending.classList.add('error');statusEl.textContent='Check your connection and the server configuration.';statusEl.className='status error'}finally{send.disabled=false}}
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();sendMessage(input.value)});
+input.addEventListener('input',()=>{input.style.height='auto';input.style.height=Math.min(input.scrollHeight,140)+'px'});
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();document.getElementById('form').requestSubmit()}});
+document.querySelectorAll('[data-prompt]').forEach(button=>button.addEventListener('click',()=>sendMessage(button.dataset.prompt)));
+function reset(){history=[];chat.replaceChildren();chat.style.display='none';welcome.style.display='block';statusEl.textContent='';statusEl.className='status';input.value='';document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));document.getElementById('navTalk').classList.add('active')}
+document.getElementById('newChat').addEventListener('click',reset);document.getElementById('navTalk').addEventListener('click',reset);document.getElementById('navDaily').addEventListener('click',()=>sendMessage('Offer me a daily reflection: one gentle insight and one open question, without assuming what my day is like.'));document.getElementById('navRitual').addEventListener('click',()=>sendMessage('Guide me through a brief grounding ritual to return to the present moment.'));
+</script></body></html>

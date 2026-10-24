@@ -128,51 +128,6 @@ voiceOrb.addEventListener("click",()=>{
   voiceMode=true;
   startListening();
 });
-let voiceMode=false;
-let recognition=null;
-const voiceButton=document.getElementById("voiceButton");
-const voiceOrb=document.getElementById("voiceOrb");
-const orbCaption=document.getElementById("orbCaption");
-function speakReply(text){
-  if(!voiceMode || !("speechSynthesis" in window)) return;
-  window.speechSynthesis.cancel();
-  const utterance=new SpeechSynthesisUtterance(text);
-  utterance.rate=0.88;
-  utterance.pitch=0.92;
-  utterance.volume=0.9;
-  utterance.onstart=()=>{orbCaption.textContent="A few words, gently offered";statusEl.textContent="Sage is speaking…";};
-  utterance.onend=()=>{orbCaption.textContent="A moment of stillness";statusEl.textContent="Here with you";};
-  window.speechSynthesis.speak(utterance);
-}
-function startListening(){
-  const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SpeechRecognition){
-    statusEl.textContent="Voice input isn't available in this browser. You can still type below.";
-    statusEl.className="status";
-    return;
-  }
-  if(recognition){try{recognition.abort()}catch(e){}}
-  recognition=new SpeechRecognition();
-  recognition.lang="en-US";
-  recognition.interimResults=false;
-  recognition.maxAlternatives=1;
-  recognition.onstart=()=>{orbCaption.textContent="I'm here. Take your time.";statusEl.textContent="Listening…";voiceOrb.style.animationDuration="2s";};
-  recognition.onresult=e=>{input.value=e.results[0][0].transcript;sendMessage(input.value);};
-  recognition.onerror=()=>{statusEl.textContent="I couldn't hear that clearly. Tap the voice button to try again.";orbCaption.textContent="A moment of stillness";};
-  recognition.onend=()=>{voiceOrb.style.animationDuration="5s";if(!send.disabled)orbCaption.textContent="A moment of stillness";};
-  try{recognition.start()}catch(e){statusEl.textContent="Please tap the voice button again in a moment.";}
-}
-voiceButton.addEventListener("click",()=>{
-  voiceMode=true;
-  if(!("speechSynthesis" in window)){
-    statusEl.textContent="Spoken replies aren't supported in this browser.";
-  }
-  startListening();
-});
-voiceOrb.addEventListener("click",()=>{
-  voiceMode=true;
-  startListening();
-});
 let history=[];
 function addMessage(role,text,extraClass=""){const row=document.createElement("div");row.className="msg "+(role==="user"?"user":"sage");const avatar=document.createElement("div");avatar.className="avatar "+(role==="user"?"user-avatar":"sage-avatar");avatar.textContent=role==="user"?"YOU":"S";const bubble=document.createElement("div");bubble.className="bubble "+extraClass;bubble.textContent=text;row.append(avatar,bubble);chat.append(row);row.scrollIntoView({behavior:"smooth",block:"end"});return bubble}
 function showChat(){welcome.style.display="none";chat.style.display="flex"}
